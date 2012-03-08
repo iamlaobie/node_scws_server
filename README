@@ -4,7 +4,16 @@ post http://host:post/segment
 参数：
 text：要拆分的文本
 multi：是否符合分词，默认不复合分词
-top：返回TF-IDF权重最高的前N个词
+top：返回TF-IDF权重最高的前N个词，默认返回所有
 
 如：
-text=多发中国掌上中国移动是个混蛋&multi=1&top=3
+curl -d"text=多发中国掌上中国移动是个混蛋&multi=1" http://172.16.33.238:9090/segment
+
+返回：
+{"error":null,
+"words":[{"word":"中国","weight":12.52,"times":2},
+{"word":"多发","weight":6.93,"times":1},
+{"word":"混蛋","weight":6.44,"times":1},
+{"word":"中国移动","weight":5.91,"times":1},
+{"word":"掌上","weight":5.79,"times":1},
+{"word":"移动","weight":4.76,"times":1}]}
