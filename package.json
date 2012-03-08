@@ -1,0 +1,16 @@
+{
+    "name": "node_scws_server",
+    "version": "0.1.0",
+    "description": "server for scws",
+    "author": "iamlaobie <iamlaobie@gmail.com>",
+    "dependencies": {
+        "express": "",
+        "async": ""
+    },
+    "scripts": {
+        "start": "node server.js"
+    },
+    "engines": {
+        "node": "0.6.x"
+    }
+}
