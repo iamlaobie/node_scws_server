@@ -7,11 +7,11 @@ var je = function(o){
 	return JSON.stringify(o);
 }
 var q = async.queue(function(task, callback){
-	segment(task.text, function(err, words){
+	segment(task, function(err, words){
 		if(err){
 			task.res.end(je({error:err}));
 		}else{
-			task.res.end(je({words:words}));
+			task.res.end(je({error:null,words:words}));
 		}
 
 	});
@@ -23,7 +23,16 @@ app.post('/segment', function(req, res){
 		res.end(je({error:'please input the text'}));
 		return;
 	}
-	q.push({res:res, text:req.body.text});
+	var task = {res:res, text:req.body.text};
+	if(req.body.multi == '1'){
+		task.multi = 3;
+	}
+
+	if(req.body.top){
+		task.top = req.body.top;
+	}
+
+	q.push(task);
 });
 
 app.get('/state', function(req, res){
