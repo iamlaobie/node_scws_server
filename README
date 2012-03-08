@@ -1,0 +1,10 @@
+分词接口：
+post http://host:post/segment
+
+参数：
+text：要拆分的文本
+multi：是否符合分词，默认不复合分词
+top：返回TF-IDF权重最高的前N个词
+
+如：
+text=多发中国掌上中国移动是个混蛋&multi=1&top=3
