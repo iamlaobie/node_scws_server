@@ -3,7 +3,7 @@ post http://host:post/segment
 
 参数：
 text：要拆分的文本
-multi：是否符合分词，默认不复合分词
+multi：是否复合分词，默认不复合分词
 top：返回TF-IDF权重最高的前N个词，默认返回所有
 
 如：
